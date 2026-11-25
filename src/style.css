@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink-600 antialiased;
+  }
+
+  ::selection {
+    background-color: #cfe3f8;
+    color: #132234;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-400 ring-offset-2 ring-offset-canvas;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-brand-600 text-white shadow-lg shadow-brand-600/20 hover:-translate-y-0.5 hover:bg-brand-700;
+  }
+
+  .btn-secondary {
+    @apply border border-slate-200 bg-white text-ink-700 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-700 hover:shadow-card;
+  }
+
+  .card {
+    @apply rounded-3xl border border-slate-200/80 bg-white shadow-card;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-brand-600;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-ink-500;
+  }
+}
+
+.hero-aurora {
+  background-image:
+    radial-gradient(900px 420px at 10% 6%, rgba(147, 197, 253, 0.34), transparent 65%),
+    radial-gradient(720px 380px at 92% 0%, rgba(186, 230, 253, 0.42), transparent 62%),
+    linear-gradient(180deg, #f2f7fd 0%, #f7fafd 56%, #ffffff 100%);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.14) 1px, transparent 1px);
+  background-size: 42px 42px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 28%, #000 32%, transparent 76%);
+  mask-image: radial-gradient(ellipse at 50% 28%, #000 32%, transparent 76%);
+  pointer-events: none;
+}
+
+.shot-grid {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
